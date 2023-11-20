@@ -9,7 +9,8 @@ spec:
       app: moderation
   template:
     metadata:
-      labels:ß
+      labels:
+        app: moderation
     spec:
       containers:
         - name: moderation
