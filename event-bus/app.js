@@ -13,16 +13,16 @@ app.post("/events", (req, res) => {
 
     events.push(event);
 
-    axios.post("http://localhost:4100/events", event).catch((err) => {
+    axios.post("http://comments-svc:4100", event).catch((err) => {
         console.log(err.message)
     })
-    axios.post("http://localhost:4000/events", event).catch((err) => {
+    axios.post("http://post-svc:4000", event).catch((err) => {
         console.log(err.message)
     })
-    axios.post("http://localhost:4200/events", event).catch((err) => {
+    axios.post("http://query-svc:4200", event).catch((err) => {
         console.log(err.message)
     })
-    axios.post("http://localhost:4400/events", event).catch((err) => {
+    axios.post("http://moderation-svc:4400", event).catch((err) => {
         console.log(err.message)
     })
     res.send({status: "OK"})
