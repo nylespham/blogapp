@@ -8,6 +8,8 @@ RUN mkdir -p /blogapp/${SERVICE}
 
 COPY ${SERVICE}/. /blogapp/${SERVICE}
 
+WORKDIR /blogapp/${SERVICE}
+
 RUN npm install
 
 EXPOSE ${PORT}
