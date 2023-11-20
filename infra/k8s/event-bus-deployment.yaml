@@ -16,5 +16,19 @@ spec:
         - name: event-bus
           image: event-bus:latest
           imagePullPolicy: Never
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: event-bus-svc
+spec:
+  type: ClusterIP
+  selector:
+    app: event-bus
+  ports:
+    - name: event-bus
+      protocol: TCP
+      port: 4500
+      targetPort: 4500
 
 
