@@ -23,7 +23,7 @@ app.post("/posts", async (req, res) => {
     title,
   };
 
-  await axios.post("http://event-bus-svc:4500", {
+  await axios.post("http://event-bus-svc:4500/events", {
     type: "PostCreated",
     data: {
       id,
