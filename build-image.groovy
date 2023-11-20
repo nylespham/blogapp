@@ -1,0 +1,1 @@
+docker build -t ${SERVICE_NAME}:${TAG} -f Dockerfile.arg --build-arg SERVICE=${SERVICE_NAME}

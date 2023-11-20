@@ -1,0 +1,9 @@
+FROM node:alpine
+
+ARG SERVICE=none
+
+RUN mkdir -p /blogapp/${SERVICE}
+
+COPY ${SERVICE}/. /blogapp/${SERVICE}
+
+CMD ["npm", "start"]
