@@ -9,7 +9,8 @@ spec:
     - host: posts.com
       http:
         paths:
-          - path: /posts
+          - pathType: Prefix
+            path: /posts
             backend:
               serviceName: posts-svc
               servicePort: 4000
