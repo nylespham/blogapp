@@ -4,6 +4,7 @@ metadata:
   name: ingress-srv
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/use-regex: "true"
   namespace: default
 spec:
   ingressClassName: nginx
@@ -12,9 +13,30 @@ spec:
       http:
         paths:
           - pathType: Prefix
-            path: /posts
+            path: /posts/create
             backend:
               service: 
                 name: posts-svc
                 port:
                   number: 4000 
+          - pathType: Prefix
+            path: /posts
+            backend:
+              service: 
+                name: query-svc
+                port:
+                  number: 4200
+          - pathType: Prefix
+            path: /posts/?(.*)/comments
+            backend:
+              service: 
+                name: comments-svc
+                port:
+                  number: 4100
+          - pathType: Prefix
+            path: /?(.*)
+            backend:
+              service: 
+                name: client-svc
+                port:
+                  number: 3000
