@@ -4,7 +4,9 @@ metadata:
   name: ingress-srv
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+  namespace: default
 spec:
+  ingressClassName: nginx
   rules:
     - host: posts.com
       http:
@@ -12,6 +14,7 @@ spec:
           - pathType: Prefix
             path: /posts
             backend:
-              service: posts-svc
-              port:
-                number: 4000 
+              service: 
+                name: posts-svc
+                port:
+                  number: 4000 
