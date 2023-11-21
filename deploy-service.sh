@@ -1,13 +1,15 @@
 #!/bin/bash
 
-kubectl apply -f client-deployment.yaml
+export APP_DIR="infra/k8s"
 
-kubectl apply -f comments-deployment.yaml
+kubectl apply -f ${APP_DIR}/client-deployment.yaml
 
-kubectl apply -f event-bus-deployment.yaml
+kubectl apply -f ${APP_DIR}/comments-deployment.yaml
 
-kubectl apply -f moderation-deployment.yaml
+kubectl apply -f ${APP_DIR}/event-bus-deployment.yaml
 
-kubectl apply -f posts-deployment.yaml
+kubectl apply -f ${APP_DIR}/moderation-deployment.yaml
 
-kubectl apply -f query-deployment.yaml
+kubectl apply -f ${APP_DIR}/posts-deployment.yaml
+
+kubectl apply -f ${APP_DIR}/query-deployment.yaml
