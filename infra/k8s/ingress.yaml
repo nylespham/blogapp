@@ -6,10 +6,9 @@ metadata:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-    - host: posts.com
       http:
         paths:
-          - path: "/post"
+          - path: /posts
             backend:
               serviceName: posts-svc
               servicePort: 4000
