@@ -12,5 +12,6 @@ spec:
           - pathType: Prefix
             path: /posts
             backend:
-              serviceName: posts-svc
-              servicePort: 4000
+              service: posts-svc
+              port:
+                number: 4000 
